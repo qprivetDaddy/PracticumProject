@@ -3,6 +3,9 @@
  * Реализована логика по сохранению и изменения кол-во шагов.
  * Расчет статистики.
  */
+
+import java.util.Scanner;
+
 public class StepTracker {
     int goalforToday;
     int[][] monthToData;
@@ -15,19 +18,12 @@ public class StepTracker {
 
     public void setStepsToData(int month, int day, int steps) {
         /* установить количество шагов за определенный день. */
-        if (month < 1 || month > 12) {
-            System.out.println("Неверный ввод. Введите от 1 до 12.");
-            return;
-        }
-        if (day < 1 || day > 30) {
-            System.out.println("Неверный ввод. Введите от 1 до 30.");
-            return;
-        }
-        if (steps < 0) {
-            System.out.println("Введите положительное число.");
-        } else {
+
+        if (steps >= 0) {
             monthToData[month - 1][day - 1] = steps;
             System.out.println(steps + " шагов сохранено в " + day + "-й день в " + month + "-й месяца.");
+        } else {
+            System.out.println("Введено неверное значение.");
         }
     }
 
@@ -83,7 +79,9 @@ public class StepTracker {
 
     public void stepDay(int month) {
         /* шаги по дням */
-        for (int i = 0; i < monthToData[month - 1].length - 1; i++) {
+        String output = ""; // создал пустую строку
+        for (int i = 0; i < monthToData[month - 1].length; i++) {
+            output = output + monthToData[month - 1][i]; // вроде бы конкатенировал, но получилась каша. Можно подсказку плиз).
             System.out.print((i + 1) + " день: " + monthToData[month - 1][i] + ", ");
         }
         System.out.println(monthToData[month - 1].length + " день: " + monthToData[month - 1][monthToData[month - 1].length - 1]);

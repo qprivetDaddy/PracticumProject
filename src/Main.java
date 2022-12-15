@@ -18,19 +18,11 @@ public class Main {
             if (command == 1) {
                 printSelectMonth();
                 int month = inputUser.nextInt();
-                if (month < 1 || month > 12) {
-                    System.out.println("Неверный ввод. Введите от 1 до 12.");
-                } else {
-                    System.out.println("Выберите день от 1 до 30");
-                    int day = inputUser.nextInt();
-                    if (day < 1 || day > 30) {
-                        System.out.println("Неверный ввод. Введите от 1 до 30.");
-                    } else {
-                        System.out.println("Введите кол-во шагов.");
-                        int steeps = inputUser.nextInt();
-                        stepTracker.setStepsToData(month, day, steeps);
-                    }
-                }
+                System.out.println("Выберите день от 1 до 30.");
+                int day = inputUser.nextInt();
+                System.out.println("Введите кол-во шагов.");
+                int steeps = inputUser.nextInt();
+                stepTracker.setStepsToData(month, day, steeps);
             } else if (command == 2) {
                 printSelectMonth();
                 int month = inputUser.nextInt();
@@ -43,13 +35,15 @@ public class Main {
                     stepTracker.midNumberOfStepsPerMonth(month);
                     stepTracker.bestSeriesOfTheMonth(month);
                     converter.convert(month);
-
                 }
             } else if (command == 3) {
                 System.out.println("Введите новое количество шагов\n." +
                         "Для установки новой цели.");
                 int goalforToday = inputUser.nextInt();
                 stepTracker.setNewChange(goalforToday);
+            } else if (command == 4) {
+                System.out.println("Выход.");
+                break;
             }
         }
     }
@@ -69,3 +63,4 @@ public class Main {
 
     }
 }
+

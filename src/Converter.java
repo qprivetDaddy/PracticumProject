@@ -1,7 +1,7 @@
 /* Класс конвертации шагов в километры и калории */
 public class Converter {
-    final static double lengthSteps = 75d;
-    final static double caloriesSteps = 50d;
+    private final static double lengthSteps = 0.75d;
+    private final static double caloriesSteps = 50d;
 
     static void convert(int steps) {
         /* конвертации шагов в километры и калории */
