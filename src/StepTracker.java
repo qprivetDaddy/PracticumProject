@@ -4,8 +4,6 @@
  * Расчет статистики.
  */
 
-import java.util.Scanner;
-
 public class StepTracker {
     int goalforToday;
     int[][] monthToData;
@@ -79,12 +77,11 @@ public class StepTracker {
 
     public void stepDay(int month) {
         /* шаги по дням */
-        String output = ""; // создал пустую строку
+        String output = "";
         for (int i = 0; i < monthToData[month - 1].length; i++) {
-            output = output + monthToData[month - 1][i]; // вроде бы конкатенировал, но получилась каша. Можно подсказку плиз).
-            System.out.print((i + 1) + " день: " + monthToData[month - 1][i] + ", ");
+            output += i + 1 + " день: " + monthToData[month - 1][i] + ", ";
         }
-        System.out.println(monthToData[month - 1].length + " день: " + monthToData[month - 1][monthToData[month - 1].length - 1]);
+        System.out.println(output.substring(0, output.length() - 2) + ".");
     }
 
 
